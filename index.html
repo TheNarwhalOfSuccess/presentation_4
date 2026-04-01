@@ -292,7 +292,7 @@ const SCENES = [
         letter: 'B', accent: 'var(--gpa-color)',
         title: 'Use AI to draft slides for team',
         desc: 'Generate the content quickly, let AI do the heavy lifting.',
-        effect: { gpa: 5, burnout: 2, motivation: -3, dependency: 9 },
+        effect: { gpa: 5, burnout: -5, motivation: -3, dependency: 9 },
         feedback: { tone: 'neutral', headline: 'PRAGMATIC CHOICE', result: 'Slides Generated',
           desc: 'The presentation looked great. Nobody learned much — but at least it\'s done.', sound: 'neutral' }
       },
@@ -428,7 +428,7 @@ const SCENES = [
         letter: 'B', accent: 'var(--accent4)',
         title: 'AI for research, you write the argument',
         desc: 'Use AI to surface sources, then build your analysis.',
-        effect: { gpa: 6, burnout: 2, motivation: 4, dependency: 5 },
+        effect: { gpa: 6, burnout: -3, motivation: 4, dependency: 5 },
         feedback: { tone: 'neutral', headline: 'BALANCED APPROACH', result: 'Strong Paper — Partial Dependency',
           desc: 'Smart use of AI as a tool, not a crutch. You still formed the argument. This is the nuanced middle ground.', sound: 'positive' }
       },
@@ -492,7 +492,7 @@ const SCENES = [
         letter: 'D', accent: 'var(--burnout-color)',
         title: 'Skip it — focus on what you know',
         desc: 'Ignore the weak area. Double down on your strengths.',
-        effect: { gpa: -5, burnout: -2, motivation: -4, dependency: 0 },
+        effect: { gpa: -5, burnout: 0, motivation: -4, dependency: 0 },
         feedback: { tone: 'danger', headline: 'KNOWLEDGE GAP GROWS', result: 'Exposed on the Exam',
           desc: 'The question you hoped wouldn\'t appear... appeared. Knowledge gaps compound over time.', sound: 'negative' }
       }
@@ -520,7 +520,7 @@ const SCENES = [
         letter: 'B', accent: 'var(--gpa-color)',
         title: 'Use AI to polish your draft',
         desc: 'Write it yourself, then let AI improve the language.',
-        effect: { gpa: 0, burnout: 1, motivation: 6, dependency: 4 },
+        effect: { gpa: 0, burnout: -2, motivation: 6, dependency: 4 },
         feedback: { tone: 'positive', headline: 'SMART POLISH', result: 'Strong Application Sent',
           desc: 'The ideas were yours. The polish was AI-assisted. This is the right balance — you didn\'t let AI replace your thinking.', sound: 'positive' }
       },
@@ -799,11 +799,14 @@ function showFeedback(choice, callback) {
   document.getElementById('feedback-desc').textContent     = fb.desc;
 
   // Stat change chips
+  // For burnout, higher is BAD — so invert the color logic
   document.getElementById('feedback-changes').innerHTML =
     Object.entries(choice.effect).map(([k, v]) => {
       if (v === 0) return `<span class="stat-change neu">${k.toUpperCase()} ±0</span>`;
-      const cls  = v > 0 ? 'pos' : 'neg';
-      const sign = v > 0 ? '+'  : '';
+      const goodWhenUp = k !== 'burnout'; // all stats except burnout are good when they rise
+      const isGood = goodWhenUp ? v > 0 : v < 0;
+      const cls  = isGood ? 'pos' : 'neg';
+      const sign = v > 0 ? '+' : '';
       return `<span class="stat-change ${cls}">${k.toUpperCase()} ${sign}${v}</span>`;
     }).join('');
 
