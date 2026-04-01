@@ -11,9 +11,9 @@
 <!-- ===== TITLE SCREEN ===== -->
 <div id="title-screen" class="screen active">
   <div class="title-decoration" style="top:-5%;right:-10%;transform:rotate(-15deg)">AI</div>
-  <p class="title-eyebrow">▶ Interactive Simulation — Spring 2025</p>
+  <p class="title-eyebrow">▶ Interactive Simulation — Spring 2026 | Group 8</p>
   <h1 class="title-main">THE<span>GRIND</span></h1>
-  <p class="title-sub">A CHOOSE-YOUR-OWN-ADVENTURE ON AI & STUDENT MOTIVATION</p>
+  <p class="title-sub">AI'S EFFECT ON STUDENT MOTIVATION</p>
   <div class="title-stats-preview">
     <div class="stat-pill"><div class="stat-dot" style="background:#00ff88"></div>GPA</div>
     <div class="stat-pill"><div class="stat-dot" style="background:#ff3366"></div>BURNOUT</div>
@@ -72,7 +72,7 @@
       </div>
 
       <div class="scene-counter">
-        <span id="scene-label">Scene 1 of 10</span>
+        <span id="scene-label">Question 1 of 10</span>
         <div class="scene-dots" id="scene-dots"></div>
       </div>
     </aside>
@@ -105,7 +105,7 @@
       <div class="news-headline"   id="news-headline"></div>
       <div class="news-body-text"  id="news-body-text"></div>
     </div>
-    <button class="news-continue-btn" onclick="closeBreakingNews()">UNDERSTOOD — CONTINUE →</button>
+    <button class="news-continue-btn" onclick="closeBreakingNews()">CONTINUE →</button>
   </div>
   <div class="news-ticker-bar">
     <span class="news-ticker-text" id="news-ticker"></span>
@@ -187,10 +187,10 @@ const SCENES = [
   /* ── Scene 1 ── */
   {
     id: 0,
-    tag: '📚 Scene 1',
+    tag: 'Question 1',
     title: 'The 2 AM Paper',
     desc: 'You have a 1,500-word paper due in 2 hours. You haven\'t started. Your roommate is asleep. The clock is ticking.',
-    tension: '⚠️ This is worth 20% of your grade.',
+    tension: 'This is worth 20% of your grade.',
     choices: [
       {
         letter: 'A', accent: 'var(--gpa-color)',
@@ -204,7 +204,7 @@ const SCENES = [
         letter: 'B', accent: 'var(--motivation-color)',
         title: 'Write it yourself — no AI',
         desc: 'Power through on your own. It\'s 2 AM, but you know this material.',
-        effect: { gpa: 2, burnout: 6, motivation: 7, dependency: 0 },
+        effect: { gpa: 2, burnout: 6, motivation: 7, dependency: -4 },
         feedback: { tone: 'positive', headline: 'RESPECT', result: 'All You, Baby',
           desc: 'Your argument was messy, your transitions weak — but the ideas were completely yours. The professor will see authentic thinking.', sound: 'positive' }
       },
@@ -231,16 +231,16 @@ const SCENES = [
   /* ── Scene 2 ── */
   {
     id: 1,
-    tag: '📖 Scene 2',
+    tag: 'Question 2',
     title: 'Midterm Eve',
     desc: 'Your midterm is in 14 hours. You have 6 chapters of dense content to review. You open ChatGPT.',
-    tension: '💡 Your study habits now will define your exam performance.',
+    tension: 'Your study habits now will define your exam performance.',
     choices: [
       {
         letter: 'A', accent: 'var(--motivation-color)',
         title: 'Study the old-fashioned way',
         desc: 'Reread notes, make flashcards, test yourself repeatedly.',
-        effect: { gpa: 3, burnout: 8, motivation: 6, dependency: 0 },
+        effect: { gpa: 3, burnout: 8, motivation: 6, dependency: -4 },
         feedback: { tone: 'positive', headline: 'GRIND MODE', result: 'Deep Understanding Built',
           desc: 'Your brain hurts. Your coffee is cold. But when you walk into that exam, the knowledge is actually yours.', sound: 'positive' }
       },
@@ -275,16 +275,16 @@ const SCENES = [
   /* ── Scene 3 ── */
   {
     id: 2,
-    tag: '👥 Scene 3',
+    tag: 'Question 3',
     title: 'The Slacker Group',
     desc: 'Your group project is due Friday. Three of your four teammates have done nothing. The presentation needs 15 slides.',
-    tension: '😤 You\'re furious. But the grade is shared.',
+    tension: 'You\'re furious. But the grade is shared.',
     choices: [
       {
         letter: 'A', accent: 'var(--motivation-color)',
         title: 'Do the whole project yourself',
         desc: 'Stay up and carry everyone. At least it\'ll be good.',
-        effect: { gpa: 6, burnout: 12, motivation: -2, dependency: 0 },
+        effect: { gpa: 6, burnout: 12, motivation: -2, dependency: -4 },
         feedback: { tone: 'warning', headline: 'MARTYR SYNDROME', result: 'Project Done. You\'re Broken.',
           desc: 'You got a great grade. You also resented every minute of it. Burnout is spiking dangerously.', sound: 'negative' }
       },
@@ -315,7 +315,7 @@ const SCENES = [
     ],
     breakingNews: {
       headline: 'LOCAL STUDENT\'S GPA HITS RECORD HIGH — MOTIVATION NOWHERE TO BE FOUND',
-      body: 'Campus sources report a student achieving a 3.9 GPA this semester while simultaneously describing their studies as "completely meaningless." Experts warn of a growing disconnect between academic performance and genuine learning.',
+      body: 'Campus sources report a student achieving a 3.9 GPA this semester while simultaneously using Artificial Intelligence. They describe their studies as "completely meaningless." Experts warn of a growing disconnect between academic performance and genuine learning.',
       ticker: 'BREAKING: AI USAGE ON CAMPUS UP 340% · PROFESSOR COMPLAINS EVERY ESSAY NOW SOUNDS THE SAME · STUDENT ADMITS: \'I GRADUATED BUT DON\'T KNOW ANYTHING\''
     }
   },
@@ -323,10 +323,10 @@ const SCENES = [
   /* ── Scene 4 ── */
   {
     id: 3,
-    tag: '💬 Scene 4',
+    tag: '💬 Question 4',
     title: 'The Participation Grade',
     desc: 'Your professor wants a 500-word reading response posted by midnight. You didn\'t do the reading.',
-    tension: '🎯 Participation is 15% of your final grade.',
+    tension: 'Participation is 15% of your final grade.',
     choices: [
       {
         letter: 'A', accent: 'var(--dependency-color)',
@@ -340,7 +340,7 @@ const SCENES = [
         letter: 'B', accent: 'var(--motivation-color)',
         title: 'Skim the reading quickly yourself',
         desc: '30 minutes of actual reading, then write honestly.',
-        effect: { gpa: 3, burnout: 3, motivation: 7, dependency: 0 },
+        effect: { gpa: 3, burnout: 3, motivation: 7, dependency: -3 },
         feedback: { tone: 'positive', headline: 'GENUINE EFFORT', result: 'Authentic Response Written',
           desc: 'Your response was imperfect but real. The professor noticed.', sound: 'positive' }
       },
@@ -367,16 +367,16 @@ const SCENES = [
   /* ── Scene 5 ── */
   {
     id: 4,
-    tag: '😰 Scene 5',
+    tag: 'Question 5',
     title: 'Burnout Warning',
     desc: 'It\'s Week 10. You\'ve been running on 5 hours of sleep and have had coffee for breakfast, lunch, and dinner. Your next assignment is due tomorrow.',
-    tension: '🔴 Your body is sending serious signals. Do you listen?',
+    tension: 'Your body is sending serious signals. Do you listen?',
     choices: [
       {
         letter: 'A', accent: 'var(--burnout-color)',
         title: 'Push through — grind harder',
         desc: 'Sleep is for the weak. You can rest in summer.',
-        effect: { gpa: 4, burnout: 14, motivation: -5, dependency: 0 },
+        effect: { gpa: 4, burnout: 14, motivation: -5, dependency: -3 },
         feedback: { tone: 'danger', headline: 'DANGER ZONE', result: 'Assignment Done. At What Cost?',
           desc: 'You submitted. But you\'re now operating at a serious cognitive deficit. Burnout this high impairs learning, memory, and creativity.', sound: 'negative' }
       },
@@ -411,10 +411,10 @@ const SCENES = [
   /* ── Scene 6 ── */
   {
     id: 5,
-    tag: '💡 Scene 6',
+    tag: 'Question 6',
     title: 'The Research Paper',
     desc: 'You need to write a 10-page research paper. You have two weeks. This is the biggest assignment of the semester.',
-    tension: '📌 Your approach here will define your final grade.',
+    tension: 'Your approach here will define your final grade.',
     choices: [
       {
         letter: 'A', accent: 'var(--motivation-color)',
@@ -459,10 +459,10 @@ const SCENES = [
   /* ── Scene 7 ── */
   {
     id: 6,
-    tag: '🧠 Scene 7',
+    tag: 'Question 7',
     title: 'The Concept You Don\'t Get',
     desc: 'You\'re completely lost on a key concept. The exam is in 5 days. Your professor has office hours — but so does ChatGPT.',
-    tension: '🔑 How you learn this will affect how you retain it.',
+    tension: 'How you learn this will affect how you retain it.',
     choices: [
       {
         letter: 'A', accent: 'var(--motivation-color)',
@@ -503,10 +503,10 @@ const SCENES = [
   /* ── Scene 8 ── */
   {
     id: 7,
-    tag: '⚡ Scene 8',
+    tag: 'Question 8',
     title: 'The Internship Application',
     desc: 'A dream internship is open. They want a cover letter and a "sample of your thinking." You have 24 hours.',
-    tension: '🎯 This could change your career.',
+    tension: 'This could change your career.',
     choices: [
       {
         letter: 'A', accent: 'var(--motivation-color)',
@@ -547,16 +547,16 @@ const SCENES = [
   /* ── Scene 9 ── */
   {
     id: 8,
-    tag: '🏁 Scene 9',
+    tag: 'Question 9',
     title: 'Final Exam Week',
     desc: 'Finals week. Four exams in five days. You\'re reviewing your notes — or what you have of them.',
-    tension: '📊 This is worth 40% of your grade. Everything matters now.',
+    tension: 'This is worth 40% of your grade. Everything matters now.',
     choices: [
       {
         letter: 'A', accent: 'var(--motivation-color)',
         title: 'Intensive manual review — no AI',
         desc: 'Go through everything by hand. Trust yourself.',
-        effect: { gpa: 5, burnout: 10, motivation: 8, dependency: -5 },
+        effect: { gpa: 5, burnout: 10, motivation: 8, dependency: -6 },
         feedback: { tone: 'positive', headline: 'FINAL PUSH', result: 'Earned Those Grades',
           desc: 'You walked out of that last exam exhausted — and proud. You knew the material because you did the work.', sound: 'positive' }
       },
@@ -591,10 +591,10 @@ const SCENES = [
   /* ── Scene 10 ── */
   {
     id: 9,
-    tag: '🎓 Scene 10',
+    tag: 'Question 10',
     title: 'The Reflection',
     desc: 'Semester\'s over. You\'re sitting with your final grades. Your professor asks: "What did you actually learn this semester?"',
-    tension: '💭 What\'s your honest answer?',
+    tension: 'What\'s your honest answer?',
     choices: [
       {
         letter: 'A', accent: 'var(--motivation-color)',
@@ -687,7 +687,7 @@ function updateSceneDots(idx) {
     if (!d) return;
     d.className = 'scene-dot' + (i < idx ? ' done' : i === idx ? ' current' : '');
   });
-  document.getElementById('scene-label').textContent = `Scene ${idx + 1} of ${SCENES.length}`;
+  document.getElementById('scene-label').textContent = `Question ${idx + 1} of ${SCENES.length}`;
 }
 
 
@@ -725,7 +725,7 @@ function renderScene(idx) {
   main.innerHTML = `
     <div class="scene-header">
       <span class="scene-tag">${scene.tag}</span>
-      <span class="scene-number">Scene ${idx + 1} / ${SCENES.length}</span>
+      <span class="scene-number">Question ${idx + 1} / ${SCENES.length}</span>
     </div>
     <div class="scenario-card">
       <div class="scenario-title">${scene.title}</div>
@@ -803,7 +803,7 @@ function showFeedback(choice, callback) {
   document.getElementById('feedback-changes').innerHTML =
     Object.entries(choice.effect).map(([k, v]) => {
       if (v === 0) return `<span class="stat-change neu">${k.toUpperCase()} ±0</span>`;
-      const goodWhenUp = k !== 'burnout'; // all stats except burnout are good when they rise
+      const goodWhenUp = k !== 'burnout' && k !== 'dependency'; // burnout and dependency are bad when they rise
       const isGood = goodWhenUp ? v > 0 : v < 0;
       const cls  = isGood ? 'pos' : 'neg';
       const sign = v > 0 ? '+' : '';
