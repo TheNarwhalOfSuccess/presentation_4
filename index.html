@@ -11,9 +11,9 @@
 <!-- ===== TITLE SCREEN ===== -->
 <div id="title-screen" class="screen active">
   <div class="title-decoration" style="top:-5%;right:-10%;transform:rotate(-15deg)">AI</div>
-  <p class="title-eyebrow">▶ Interactive Simulation — Spring 2026 | Group 8</p>
+  <p class="title-eyebrow">▶ Interactive Simulation — Spring 2025</p>
   <h1 class="title-main">THE<span>GRIND</span></h1>
-  <p class="title-sub">AI'S EFFECT ON STUDENT MOTIVATION</p>
+  <p class="title-sub">A CHOOSE-YOUR-OWN-ADVENTURE ON AI & STUDENT MOTIVATION</p>
   <div class="title-stats-preview">
     <div class="stat-pill"><div class="stat-dot" style="background:#00ff88"></div>GPA</div>
     <div class="stat-pill"><div class="stat-dot" style="background:#ff3366"></div>BURNOUT</div>
@@ -72,7 +72,7 @@
       </div>
 
       <div class="scene-counter">
-        <span id="scene-label">Question 1 of 10</span>
+        <span id="scene-label">Scene 1 of 10</span>
         <div class="scene-dots" id="scene-dots"></div>
       </div>
     </aside>
@@ -105,7 +105,7 @@
       <div class="news-headline"   id="news-headline"></div>
       <div class="news-body-text"  id="news-body-text"></div>
     </div>
-    <button class="news-continue-btn" onclick="closeBreakingNews()">CONTINUE →</button>
+    <button class="news-continue-btn" onclick="closeBreakingNews()">UNDERSTOOD — CONTINUE →</button>
   </div>
   <div class="news-ticker-bar">
     <span class="news-ticker-text" id="news-ticker"></span>
@@ -228,9 +228,9 @@ const SCENES = [
   {
     id: 0,
     tag: 'Question 1',
-    title: 'The First Assignment',
-    desc: 'First week of the semester. You have an essay due Friday on a topic you actually find interesting. ChatGPT can have a draft ready in 30 seconds.',
-    tension: 'How you approach this sets the tone for the whole semester.',
+    title: 'The 2 AM Paper',
+    desc: 'You have a 1,500-word paper due in 2 hours. You haven\'t started. Your roommate is asleep. The clock is ticking.',
+    tension: 'This is worth 20% of your grade.',
     choices: [
       {
         letter: 'A', accent: 'var(--motivation-color)',
@@ -241,12 +241,12 @@ const SCENES = [
           desc: 'Slow start, but the ideas are genuinely yours. Your professor can tell. More importantly — you can tell.', sound: 'positive' }
       },
       {
-        letter: 'B', accent: 'var(--gpa-color)',
-        title: 'Use AI to outline, then write it yourself',
-        desc: 'Let AI sketch the skeleton. You fill in the actual thinking.',
-        effect: { gpa: 5, burnout: -2, motivation: 2, dependency: 5 },
-        feedback: { tone: 'neutral', headline: 'OPTIMIZER LITE', result: 'Efficient Start',
-          desc: 'Smart workflow — but you\'re already leaning on AI to think through structure. That habit grows fast.', sound: 'neutral' }
+        letter: 'B', accent: 'var(--motivation-color)',
+        title: 'Write it yourself — no AI',
+        desc: 'Power through on your own. It\'s 2 AM, but you know this material.',
+        effect: { gpa: 2, burnout: 6, motivation: 7, dependency: -4 },
+        feedback: { tone: 'positive', headline: 'RESPECT', result: 'All You, Baby',
+          desc: 'Your argument was messy, your transitions weak — but the ideas were completely yours. The professor will see authentic thinking.', sound: 'positive' }
       },
       {
         letter: 'C', accent: 'var(--dependency-color)',
@@ -271,18 +271,18 @@ const SCENES = [
   /* ── Scene 2 ── */
   {
     id: 1,
-    tag: 'Question 2',
+    tag: '📖 Scene 2',
     title: 'Midterm Eve',
-    desc: 'Midterm is tomorrow. You have 6 dense chapters to review. Your friends are all using AI to generate summaries. You hesitate.',
-    tension: 'Your study method tonight will determine how much you actually retain.',
+    desc: 'Your midterm is in 14 hours. You have 6 chapters of dense content to review. You open ChatGPT.',
+    tension: 'Your study habits now will define your exam performance.',
     choices: [
       {
         letter: 'A', accent: 'var(--motivation-color)',
-        title: 'Study the old-fashioned way — notes and flashcards',
-        desc: 'Reread everything. Test yourself. No shortcuts.',
-        effect: { gpa: 3, burnout: 9, motivation: 7, dependency: -5 },
-        feedback: { tone: 'positive', headline: 'GRINDER MODE', result: 'Deep Understanding Built',
-          desc: 'Your brain hurts. But when the exam hits, the knowledge is actually yours. No AI dependency to fall back on.', sound: 'positive' }
+        title: 'Study the old-fashioned way',
+        desc: 'Reread notes, make flashcards, test yourself repeatedly.',
+        effect: { gpa: 3, burnout: 8, motivation: 6, dependency: -4 },
+        feedback: { tone: 'positive', headline: 'GRIND MODE', result: 'Deep Understanding Built',
+          desc: 'Your brain hurts. Your coffee is cold. But when you walk into that exam, the knowledge is actually yours.', sound: 'positive' }
       },
       {
         letter: 'B', accent: 'var(--accent4)',
@@ -316,25 +316,25 @@ const SCENES = [
   {
     id: 2,
     tag: 'Question 3',
-    title: 'The Group Project Problem',
-    desc: 'Group project due Friday. Three teammates have done nothing. You could grind through it yourself — or let AI carry the whole thing.',
-    tension: 'Your grade is shared. But your effort doesn\'t have to be.',
+    title: 'The Slacker Group',
+    desc: 'Your group project is due Friday. Three of your four teammates have done nothing. The presentation needs 15 slides.',
+    tension: 'You\'re furious. But the grade is shared.',
     choices: [
       {
-        letter: 'A', accent: 'var(--burnout-color)',
-        title: 'Do the whole project yourself — no AI',
-        desc: 'Stay up. Carry everyone. Make it excellent.',
-        effect: { gpa: 6, burnout: 13, motivation: -3, dependency: -4 },
-        feedback: { tone: 'warning', headline: 'MARTYR GRINDER', result: 'Done. Resentful. Exhausted.',
-          desc: 'Great grade. But you just sacrificed your wellbeing for people who didn\'t show up. Burnout at this pace won\'t hold.', sound: 'negative' }
+        letter: 'A', accent: 'var(--motivation-color)',
+        title: 'Do the whole project yourself',
+        desc: 'Stay up and carry everyone. At least it\'ll be good.',
+        effect: { gpa: 6, burnout: 12, motivation: -2, dependency: -4 },
+        feedback: { tone: 'warning', headline: 'MARTYR SYNDROME', result: 'Project Done. You\'re Broken.',
+          desc: 'You got a great grade. You also resented every minute of it. Burnout is spiking dangerously.', sound: 'negative' }
       },
       {
         letter: 'B', accent: 'var(--gpa-color)',
-        title: 'Let AI draft the whole presentation',
-        desc: 'Generate slides, talking points, everything. Submit in 2 hours.',
-        effect: { gpa: 5, burnout: -5, motivation: -4, dependency: 10 },
-        feedback: { tone: 'neutral', headline: 'FULL OPTIMIZER', result: 'Presentation Done. Learning: Zero.',
-          desc: 'Efficient. No one broke a sweat. The grade was fine. Nobody learned anything — including you.', sound: 'neutral' }
+        title: 'Use AI to draft slides for team',
+        desc: 'Generate the content quickly, let AI do the heavy lifting.',
+        effect: { gpa: 5, burnout: -5, motivation: -3, dependency: 9 },
+        feedback: { tone: 'neutral', headline: 'PRAGMATIC CHOICE', result: 'Slides Generated',
+          desc: 'The presentation looked great. Nobody learned much — but at least it\'s done.', sound: 'neutral' }
       },
       {
         letter: 'C', accent: 'var(--motivation-color)',
@@ -355,18 +355,18 @@ const SCENES = [
     ],
     breakingNews: {
       headline: 'LOCAL STUDENT\'S GPA HITS RECORD HIGH — MOTIVATION NOWHERE TO BE FOUND',
-      body: 'A campus survey this week found students who use AI for most assignments maintain higher GPAs but report dramatically lower feelings of "academic pride" and "personal accomplishment." Meanwhile, AI-avoidant students show higher stress — but also higher self-reported confidence in their abilities. Which metric actually matters?',
-      ticker: 'SURVEY: AI-HEAVY STUDENTS GPA AVG 3.6 VS 3.1 FOR AI-AVOIDANT · SAME SURVEY: AI-AVOIDANT STUDENTS REPORT 40% HIGHER CONFIDENCE IN OWN ABILITIES · PROFESSOR: "I CAN ALWAYS TELL WHO ACTUALLY DID THE WORK"'
+      body: 'Campus sources report a student achieving a 3.9 GPA this semester while simultaneously using Artificial Intelligence. They describe their studies as "completely meaningless." Experts warn of a growing disconnect between academic performance and genuine learning.',
+      ticker: 'BREAKING: AI USAGE ON CAMPUS UP 340% · PROFESSOR COMPLAINS EVERY ESSAY NOW SOUNDS THE SAME · STUDENT ADMITS: \'I GRADUATED BUT DON\'T KNOW ANYTHING\''
     }
   },
 
   /* ── Scene 4 ── */
   {
     id: 3,
-    tag: 'Question 4',
-    title: 'The Hard Assignment',
-    desc: 'You\'re stuck on an assignment that genuinely challenges you. It\'s due tomorrow and you\'ve been staring at it for two hours. Nothing is clicking.',
-    tension: 'This is exactly the kind of struggle that either builds you — or breaks you.',
+    tag: '💬 Question 4',
+    title: 'The Participation Grade',
+    desc: 'Your professor wants a 500-word reading response posted by midnight. You didn\'t do the reading.',
+    tension: 'Participation is 15% of your final grade.',
     choices: [
       {
         letter: 'A', accent: 'var(--motivation-color)',
@@ -377,12 +377,12 @@ const SCENES = [
           desc: 'You found it yourself. This is the moment that builds actual capability. Slow, painful, real.', sound: 'positive' }
       },
       {
-        letter: 'B', accent: 'var(--dependency-color)',
-        title: 'Ask AI to solve it, study the answer',
-        desc: 'Let AI show you how. Then try to understand it after.',
-        effect: { gpa: 5, burnout: -3, motivation: -4, dependency: 9 },
-        feedback: { tone: 'neutral', headline: 'OPTIMIZER SHORTCUT', result: 'Assignment Done',
-          desc: 'You got the answer. But did you learn how to get there — or just how to ask AI to get there for you?', sound: 'neutral' }
+        letter: 'B', accent: 'var(--motivation-color)',
+        title: 'Skim the reading quickly yourself',
+        desc: '30 minutes of actual reading, then write honestly.',
+        effect: { gpa: 3, burnout: 3, motivation: 7, dependency: -3 },
+        feedback: { tone: 'positive', headline: 'GENUINE EFFORT', result: 'Authentic Response Written',
+          desc: 'Your response was imperfect but real. The professor noticed.', sound: 'positive' }
       },
       {
         letter: 'C', accent: 'var(--accent3)',
@@ -408,17 +408,17 @@ const SCENES = [
   {
     id: 4,
     tag: 'Question 5',
-    title: 'Burnout Warning Sign',
-    desc: 'Week 9. You\'re running on 5 hours of sleep. Your next assignment is due tomorrow. Your Optimizer friend submitted theirs 2 hours ago using AI.',
-    tension: 'Your body is sending red flags. Do you listen?',
+    title: 'Burnout Warning',
+    desc: 'It\'s Week 10. You\'ve been running on 5 hours of sleep and have had coffee for breakfast, lunch, and dinner. Your next assignment is due tomorrow.',
+    tension: 'Your body is sending serious signals. Do you listen?',
     choices: [
       {
         letter: 'A', accent: 'var(--burnout-color)',
-        title: 'Push through — Grinders don\'t quit',
-        desc: 'Rest is for people who didn\'t commit hard enough.',
-        effect: { gpa: 4, burnout: 15, motivation: -6, dependency: -3 },
-        feedback: { tone: 'danger', headline: 'BURNOUT ZONE', result: 'Assignment Done. Body Failing.',
-          desc: 'Submitted. But at 70+ burnout, your cognitive performance is clinically impaired. You\'re not grinding — you\'re decaying.', sound: 'negative' }
+        title: 'Push through — grind harder',
+        desc: 'Sleep is for the weak. You can rest in summer.',
+        effect: { gpa: 4, burnout: 14, motivation: -5, dependency: -3 },
+        feedback: { tone: 'danger', headline: 'DANGER ZONE', result: 'Assignment Done. At What Cost?',
+          desc: 'You submitted. But you\'re now operating at a serious cognitive deficit. Burnout this high impairs learning, memory, and creativity.', sound: 'negative' }
       },
       {
         letter: 'B', accent: 'var(--gpa-color)',
@@ -452,9 +452,9 @@ const SCENES = [
   {
     id: 5,
     tag: 'Question 6',
-    title: 'The Big Research Paper',
-    desc: 'Ten-page research paper. Two weeks. This is the biggest assignment of the semester. You\'ve watched classmates use AI from day one.',
-    tension: 'Your approach here will define both your final grade and what you actually learn.',
+    title: 'The Research Paper',
+    desc: 'You need to write a 10-page research paper. You have two weeks. This is the biggest assignment of the semester.',
+    tension: 'Your approach here will define your final grade.',
     choices: [
       {
         letter: 'A', accent: 'var(--motivation-color)',
@@ -466,11 +466,11 @@ const SCENES = [
       },
       {
         letter: 'B', accent: 'var(--accent4)',
-        title: 'AI for research surfacing, you write the analysis',
-        desc: 'Use AI to find sources faster. The argument is all you.',
-        effect: { gpa: 6, burnout: -2, motivation: 5, dependency: 5 },
-        feedback: { tone: 'neutral', headline: 'CALIBRATED OPTIMIZER', result: 'Strong Paper — Smart Balance',
-          desc: 'AI as tool, not author. You still formed the argument. This is the nuanced middle that most students miss.', sound: 'positive' }
+        title: 'AI for research, you write the argument',
+        desc: 'Use AI to surface sources, then build your analysis.',
+        effect: { gpa: 6, burnout: -3, motivation: 4, dependency: 5 },
+        feedback: { tone: 'neutral', headline: 'BALANCED APPROACH', result: 'Strong Paper — Partial Dependency',
+          desc: 'Smart use of AI as a tool, not a crutch. You still formed the argument. This is the nuanced middle ground.', sound: 'positive' }
       },
       {
         letter: 'C', accent: 'var(--dependency-color)',
@@ -499,10 +499,10 @@ const SCENES = [
   /* ── Scene 7 ── */
   {
     id: 6,
-    tag: 'Question 7',
+    tag: '🧠 Scene 7',
     title: 'The Concept You Don\'t Get',
-    desc: 'You\'re completely lost on a core concept. Exam in 5 days. Your Optimizer friend already has an AI-generated explanation in their notes. You\'re starting from zero.',
-    tension: 'How you learn this determines whether you own it — or just recognize it.',
+    desc: 'You\'re completely lost on a key concept. The exam is in 5 days. Your professor has office hours — but so does ChatGPT.',
+    tension: 'How you learn this will affect how you retain it.',
     choices: [
       {
         letter: 'A', accent: 'var(--motivation-color)',
@@ -530,9 +530,9 @@ const SCENES = [
       },
       {
         letter: 'D', accent: 'var(--burnout-color)',
-        title: 'Skip it — focus on what you already know',
-        desc: 'Double down on strengths. Ignore the weak spot.',
-        effect: { gpa: -5, burnout: 0, motivation: -5, dependency: 0 },
+        title: 'Skip it — focus on what you know',
+        desc: 'Ignore the weak area. Double down on your strengths.',
+        effect: { gpa: -5, burnout: 0, motivation: -4, dependency: 0 },
         feedback: { tone: 'danger', headline: 'KNOWLEDGE GAP GROWS', result: 'Exposed on the Exam',
           desc: 'The exact question you avoided appeared. Knowledge gaps don\'t disappear — they compound.', sound: 'negative' }
       }
@@ -544,9 +544,9 @@ const SCENES = [
   {
     id: 7,
     tag: 'Question 8',
-    title: 'The Job Application',
-    desc: 'Dream internship opens. They want a cover letter showing your "authentic thinking." Your Optimizer friend already submitted an AI-generated one. You have 24 hours.',
-    tension: 'This could change your career. Is this a moment for efficiency or authenticity?',
+    title: 'The Internship Application',
+    desc: 'A dream internship is open. They want a cover letter and a "sample of your thinking." You have 24 hours.',
+    tension: 'This could change your career.',
     choices: [
       {
         letter: 'A', accent: 'var(--motivation-color)',
@@ -558,10 +558,10 @@ const SCENES = [
       },
       {
         letter: 'B', accent: 'var(--gpa-color)',
-        title: 'Write it yourself, then use AI to polish the language',
-        desc: 'Your ideas, AI-improved delivery.',
+        title: 'Use AI to polish your draft',
+        desc: 'Write it yourself, then let AI improve the language.',
         effect: { gpa: 0, burnout: -2, motivation: 6, dependency: 4 },
-        feedback: { tone: 'positive', headline: 'CALIBRATED OPTIMIZER', result: 'Strong Application Sent',
+        feedback: { tone: 'positive', headline: 'SMART POLISH', result: 'Strong Application Sent',
           desc: 'The ideas were yours. The polish was AI-assisted. This is the right balance — you didn\'t let AI replace your thinking.', sound: 'positive' }
       },
       {
@@ -588,17 +588,17 @@ const SCENES = [
   {
     id: 8,
     tag: 'Question 9',
-    title: 'Finals Week',
-    desc: 'Four exams in five days. Your Grinder classmates look exhausted. Your Optimizer classmates look calm — but anxious about the closed-book format.',
-    tension: 'This is worth 40% of your final grade. Everything matters now.',
+    title: 'Final Exam Week',
+    desc: 'Finals week. Four exams in five days. You\'re reviewing your notes — or what you have of them.',
+    tension: 'This is worth 40% of your grade. Everything matters now.',
     choices: [
       {
         letter: 'A', accent: 'var(--motivation-color)',
-        title: 'Intensive manual review — no AI at all',
-        desc: 'Go through everything by hand. Trust your own preparation.',
-        effect: { gpa: 5, burnout: 11, motivation: 9, dependency: -7 },
-        feedback: { tone: 'positive', headline: 'GRINDER FINALS', result: 'Earned Those Grades',
-          desc: 'You walked out exhausted and proud. You knew the material because you did the work — and there was no AI to bail you out in there.', sound: 'positive' }
+        title: 'Intensive manual review — no AI',
+        desc: 'Go through everything by hand. Trust yourself.',
+        effect: { gpa: 5, burnout: 10, motivation: 8, dependency: -6 },
+        feedback: { tone: 'positive', headline: 'FINAL PUSH', result: 'Earned Those Grades',
+          desc: 'You walked out of that last exam exhausted — and proud. You knew the material because you did the work.', sound: 'positive' }
       },
       {
         letter: 'B', accent: 'var(--gpa-color)',
@@ -632,9 +632,9 @@ const SCENES = [
   {
     id: 9,
     tag: 'Question 10',
-    title: 'The Final Reflection',
-    desc: 'Semester\'s over. Grades are in. Your professor asks one last question: "What did you actually learn this semester — and would you do it differently?"',
-    tension: 'Grinder or Optimizer — this answer defines which camp you\'re in.',
+    title: 'The Reflection',
+    desc: 'Semester\'s over. You\'re sitting with your final grades. Your professor asks: "What did you actually learn this semester?"',
+    tension: 'What\'s your honest answer?',
     choices: [
       {
         letter: 'A', accent: 'var(--motivation-color)',
@@ -731,7 +731,7 @@ function updateSceneDots(idx) {
     if (!d) return;
     d.className = 'scene-dot' + (i < idx ? ' done' : i === idx ? ' current' : '');
   });
-  document.getElementById('scene-label').textContent = `Question ${idx + 1} of ${SCENES.length}`;
+  document.getElementById('scene-label').textContent = `Scene ${idx + 1} of ${SCENES.length}`;
 }
 
 
@@ -769,7 +769,7 @@ function renderScene(idx) {
   main.innerHTML = `
     <div class="scene-header">
       <span class="scene-tag">${scene.tag}</span>
-      <span class="scene-number">Question ${idx + 1} / ${SCENES.length}</span>
+      <span class="scene-number">Scene ${idx + 1} / ${SCENES.length}</span>
     </div>
     <div class="scenario-card">
       <div class="scenario-title">${scene.title}</div>
@@ -839,10 +839,12 @@ function showFeedback(choice, callback) {
   document.getElementById('feedback-result').textContent   = fb.result;
   document.getElementById('feedback-desc').textContent     = fb.desc;
 
+  // Stat change chips
+  // For burnout, higher is BAD — so invert the color logic
   document.getElementById('feedback-changes').innerHTML =
     Object.entries(choice.effect).map(([k, v]) => {
       if (v === 0) return `<span class="stat-change neu">${k.toUpperCase()} ±0</span>`;
-      const goodWhenUp = k !== 'burnout' && k !== 'dependency';
+      const goodWhenUp = k !== 'burnout' && k !== 'dependency'; // burnout and dependency are bad when they rise
       const isGood = goodWhenUp ? v > 0 : v < 0;
       const cls  = isGood ? 'pos' : 'neg';
       const sign = v > 0 ? '+' : '';
