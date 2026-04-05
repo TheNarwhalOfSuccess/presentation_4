@@ -94,23 +94,7 @@
   </div>
 </div>
 
-<!-- ===== BREAKING NEWS OVERLAY ===== -->
-<div class="breaking-news" id="breaking-news">
-  <div class="news-card">
-    <div class="news-header">
-      <span class="news-breaking">⚡ BREAKING</span>
-      <span class="news-channel">CAMPUS NEWS NETWORK · LIVE</span>
-    </div>
-    <div class="news-body">
-      <div class="news-headline"   id="news-headline"></div>
-      <div class="news-body-text"  id="news-body-text"></div>
-    </div>
-    <button class="news-continue-btn" onclick="closeBreakingNews()">CONTINUE →</button>
-  </div>
-  <div class="news-ticker-bar">
-    <span class="news-ticker-text" id="news-ticker"></span>
-  </div>
-</div>
+
 
 <!-- ===== ARCHETYPE SCREEN ===== -->
 <div id="archetype-screen" class="screen">
@@ -124,6 +108,22 @@
   <div class="discussion-inner">
     <p class="final-eyebrow">▶ Now It Gets Real</p>
     <h2 class="final-title" style="margin-bottom:24px">THE<span style="color:var(--accent)"> DEBATE</span></h2>
+
+    <!-- Slide-based question viewer — TOP -->
+    <div class="dq-slide-container">
+      <div class="dq-slide-header">
+        <span class="dq-slide-label">◆ DEBATE QUESTION</span>
+        <span class="dq-slide-counter" id="dq-counter">1 / 5</span>
+      </div>
+      <div class="dq-slide-body" id="dq-slide-body">
+        <!-- filled by JS -->
+      </div>
+      <div class="dq-slide-nav">
+        <button class="dq-nav-btn" id="dq-prev" onclick="prevQuestion()">← PREV</button>
+        <div class="dq-dots" id="dq-dots"></div>
+        <button class="dq-nav-btn dq-nav-next" id="dq-next" onclick="nextQuestion()">NEXT →</button>
+      </div>
+    </div>
 
     <div class="room-split">
       <div class="room-side grinder-side">
@@ -146,22 +146,6 @@
       <div class="huddle-desc">Each side gets 60 seconds to build their argument. Go!</div>
       <div class="timer-display" id="debate-timer">1:00</div>
       <button class="timer-btn" id="timer-btn" onclick="toggleTimer()">▶ START TIMER</button>
-    </div>
-
-    <!-- Slide-based question viewer -->
-    <div class="dq-slide-container">
-      <div class="dq-slide-header">
-        <span class="dq-slide-label">◆ DEBATE QUESTION</span>
-        <span class="dq-slide-counter" id="dq-counter">1 / 5</span>
-      </div>
-      <div class="dq-slide-body" id="dq-slide-body">
-        <!-- filled by JS -->
-      </div>
-      <div class="dq-slide-nav">
-        <button class="dq-nav-btn" id="dq-prev" onclick="prevQuestion()">← PREV</button>
-        <div class="dq-dots" id="dq-dots"></div>
-        <button class="dq-nav-btn dq-nav-next" id="dq-next" onclick="nextQuestion()">NEXT →</button>
-      </div>
     </div>
 
     <div class="final-actions" style="padding-bottom:40px">
@@ -205,7 +189,6 @@ function sfxChoice()      { playTone(440, 'sine', 0.15, 0.2); playTone(550, 'sin
 function sfxPositive()    { [523, 659, 784, 1047].forEach((f, i) => playTone(f, 'sine', 0.2, 0.25, i * 0.08)); }
 function sfxNegative()    { [300, 250, 200].forEach((f, i) => playTone(f, 'sawtooth', 0.25, 0.2, i * 0.1)); }
 function sfxNeutral()     { playTone(440, 'triangle', 0.2, 0.2); playTone(440, 'triangle', 0.15, 0.15, 0.15); }
-function sfxBreaking()    { [800, 800, 1000, 800].forEach((f, i) => playTone(f, 'square', 0.1, 0.3, i * 0.12)); }
 function sfxFinalReveal() { [262, 330, 392, 523, 659, 784].forEach((f, i) => playTone(f, 'sine', 0.4, 0.3, i * 0.1)); }
 
 
@@ -571,11 +554,7 @@ function makeChoice(sceneIdx, choiceIdx) {
   updateStatBars(true);
 
   showFeedback(choice, () => {
-    if (scene.breakingNews) {
-      showBreakingNews(scene.breakingNews, () => nextScene(sceneIdx));
-    } else {
-      nextScene(sceneIdx);
-    }
+    nextScene(sceneIdx);
   });
 }
 
@@ -621,28 +600,6 @@ function showFeedback(choice, callback) {
 
 function closeFeedback() {
   document.getElementById('feedback-overlay').classList.remove('active');
-  if (pendingCallback) {
-    const cb = pendingCallback;
-    pendingCallback = null;
-    cb();
-  }
-}
-
-
-/* ─────────────────────────────────────────────
-   BREAKING NEWS OVERLAY
-───────────────────────────────────────────── */
-function showBreakingNews(news, callback) {
-  sfxBreaking();
-  document.getElementById('news-headline').textContent   = news.headline;
-  document.getElementById('news-body-text').textContent  = news.body;
-  document.getElementById('news-ticker').textContent     = '🔴 ' + news.ticker + '   •••   🔴 ' + news.ticker;
-  pendingCallback = callback;
-  document.getElementById('breaking-news').classList.add('active');
-}
-
-function closeBreakingNews() {
-  document.getElementById('breaking-news').classList.remove('active');
   if (pendingCallback) {
     const cb = pendingCallback;
     pendingCallback = null;
