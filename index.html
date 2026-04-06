@@ -126,11 +126,11 @@
     </div>
 
     <div class="room-split">
-      <div class="room-side grinder-side">
+      <div class="room-side hustler-side">
         <div class="room-side-label" style="color:var(--burnout-color)">⬅ LEFT SIDE OF ROOM</div>
-        <div class="room-side-archetype">💪 THE GRINDERS</div>
-        <div class="room-side-sub">AI-avoidant · High burnout · High motivation</div>
-        <div class="room-side-stance">Defend: Struggling through builds real skills, resilience, and authentic confidence that AI shortcuts can never replicate.</div>
+        <div class="room-side-archetype">💪 THE HUSTLERS</div>
+        <div class="room-side-sub">AI-avoidant · High Hustle · High Motivation</div>
+        <div class="room-side-stance">Defend: Hustling through builds real skills, resilience, and authentic confidence that AI shortcuts can never replicate.</div>
       </div>
       <div class="room-divider">VS</div>
       <div class="room-side optimizer-side">
@@ -193,48 +193,48 @@ function sfxFinalReveal() { [262, 330, 392, 523, 659, 784].forEach((f, i) => pla
 
 
 /* ─────────────────────────────────────────────
-   GAME DATA  (10 scenes — Grinder vs Optimizer framing)
+   GAME DATA  (10 scenes — Hustler vs Optimizer framing)
 ───────────────────────────────────────────── */
 const SCENES = [
   /* ── Scene 1 ── */
   {
     id: 0,
     tag: 'Question 1',
-    title: 'The First Assignment',
-    desc: 'First week of the semester. You have an essay due Friday on a topic you actually find interesting. ChatGPT can have a draft ready in 30 seconds.',
-    tension: 'How you approach this sets the tone for the whole semester.',
+    title: 'COP3502C - CS1',
+    desc: "You're in Computer Science 1, your code is broken, it's due tonight, and you've been debugging for way too long. What are you actually doing?",
+    tension: 'lowkey we might be cooked',
     choices: [
       {
         letter: 'A', accent: 'var(--motivation-color)',
-        title: 'Write it yourself from scratch',
-        desc: 'Open a blank doc. Think it through. Do the actual work.',
+        title: 'Keep grinding it out',
+        desc: 'You got this... Right?',
         effect: { gpa: 2, burnout: 5, motivation: 10, dependency: -4 },
-        feedback: { tone: 'positive', headline: 'GRINDER MOVE', result: 'Words Are All Yours',
-          desc: 'Slow start, but the ideas are genuinely yours. Your professor can tell. More importantly — you can tell.', sound: 'positive' }
+        feedback: { tone: 'positive', headline: 'HUSTLER MOVE', result: 'Bug Squashed. All You.',
+          desc: 'Slow and painful, but you actually debugged it yourself. You now understand why it broke — not just that it did. That knowledge compounds.', sound: 'positive' }
       },
       {
         letter: 'B', accent: 'var(--gpa-color)',
-        title: 'Use AI to outline, then write it yourself',
-        desc: 'Let AI sketch the skeleton. You fill in the actual thinking.',
-        effect: { gpa: 5, burnout: -2, motivation: 2, dependency: 5 },
-        feedback: { tone: 'neutral', headline: 'OPTIMIZER LITE', result: 'Efficient Start',
-          desc: 'Smart workflow — but you\'re already leaning on AI to think through structure. That habit grows fast.', sound: 'neutral' }
+        title: "Use AI to explain what's wrong",
+        desc: "It's not cheating TECHNICALLY...",
+        effect: { gpa: 5, burnout: -2, motivation: -3, dependency: 6 },
+        feedback: { tone: 'neutral', headline: 'OPTIMIZER LITE', result: 'Fixed — But Did You Learn Why?',
+          desc: 'AI found the bug fast. Burnout dropped. But you let it do the diagnosing — and that habit grows quickly. Next assignment, the reflex gets stronger.', sound: 'neutral' }
       },
       {
         letter: 'C', accent: 'var(--dependency-color)',
-        title: 'Have AI write the full draft, edit lightly',
-        desc: 'Why suffer? Clean it up and submit.',
+        title: 'Use AI and paste the whole thing and pray',
+        desc: 'Why suffer? Just submit!',
         effect: { gpa: 8, burnout: -5, motivation: -8, dependency: 14 },
-        feedback: { tone: 'warning', headline: 'OPTIMIZER ALL-IN', result: 'A-Grade. Not Your Words.',
-          desc: 'Great grade. Zero effort. Zero learning. You just outsourced your thinking on week one. The dependency clock starts now.', sound: 'negative' }
+        feedback: { tone: 'warning', headline: 'OPTIMIZER ALL-IN', result: 'A-Grade. Not Your Code.',
+          desc: 'Great grade. Zero debugging. Zero learning. You just outsourced your thinking on week one — and your motivation just took a real hit because deep down, you know it.', sound: 'negative' }
       },
       {
         letter: 'D', accent: 'var(--burnout-color)',
-        title: 'Write it — no sleep, no shortcuts, no mercy',
-        desc: 'Six hours straight. Coffee. Pure stubbornness.',
-        effect: { gpa: 4, burnout: 12, motivation: 7, dependency: -5 },
-        feedback: { tone: 'warning', headline: 'EXTREME GRINDER', result: 'Done. Burnout Rising.',
-          desc: 'Admirable commitment. But week one and your burnout is already climbing. Sustainable? Probably not.', sound: 'neutral' }
+        title: "Ask someone in your class for advice",
+        desc: "Doesn't hurt to get some help sometimes",
+        effect: { gpa: 4, burnout: 3, motivation: 8, dependency: -3 },
+        feedback: { tone: 'positive', headline: 'HUMAN COLLABORATION', result: 'Solved It Together.',
+          desc: 'You got help from a real person, not an algorithm. The back-and-forth forced you to actually think it through. Motivation up — and no AI dependency added.', sound: 'positive' }
       }
     ],
     breakingNews: null
@@ -244,41 +244,41 @@ const SCENES = [
   {
     id: 1,
     tag: 'Question 2',
-    title: 'Midterm Eve',
-    desc: 'Midterm is tomorrow. You have 6 dense chapters to review. Your friends are all using AI to generate summaries. You hesitate.',
-    tension: 'Your study method tonight will determine how much you actually retain.',
+    title: 'ENC3241 - Technical Writing',
+    desc: "3 discussion posts due at 11:59. You understand the topic, but 300 words is a lot.",
+    tension: "Wow (name) I totally agree. I liked the part when you said (blank). Great point!",
     choices: [
       {
         letter: 'A', accent: 'var(--motivation-color)',
-        title: 'Study the old-fashioned way — notes and flashcards',
-        desc: 'Reread everything. Test yourself. No shortcuts.',
+        title: 'Write it yourself',
+        desc: '300 words is nothing.',
         effect: { gpa: 3, burnout: 9, motivation: 7, dependency: -5 },
-        feedback: { tone: 'positive', headline: 'GRINDER MODE', result: 'Deep Understanding Built',
-          desc: 'Your brain hurts. But when the exam hits, the knowledge is actually yours. No AI dependency to fall back on.', sound: 'positive' }
+        feedback: { tone: 'positive', headline: 'HUSTLER MODE', result: 'Real Thoughts, Real Words',
+          desc: 'Three posts written, all yours. Your burnout climbed but your motivation held — because you actually engaged with the material. That engagement shows in the writing.', sound: 'positive' }
       },
       {
         letter: 'B', accent: 'var(--accent4)',
-        title: 'Use AI summaries to cover everything fast',
-        desc: 'Six chapters condensed into bullets. Done in 90 minutes.',
+        title: 'Use AI to organize your thoughts',
+        desc: "This will go much faster",
         effect: { gpa: 4, burnout: -4, motivation: -5, dependency: 8 },
-        feedback: { tone: 'neutral', headline: 'OPTIMIZER PREP', result: 'Coverage Without Depth',
-          desc: 'You got through everything efficiently. But do you understand it — or just recognize the vocabulary? That gap shows on essay questions.', sound: 'neutral' }
+        feedback: { tone: 'neutral', headline: 'OPTIMIZER PREP', result: 'Organized. But Whose Thoughts?',
+          desc: 'You got through the posts efficiently. But AI structured your argument — and motivation dipped because you know it. That gap between effort and output slowly hollows things out.', sound: 'neutral' }
       },
       {
         letter: 'C', accent: 'var(--gpa-color)',
-        title: 'Ask AI what questions the professor will likely ask',
-        desc: 'Game the exam. Study only what\'s probably going to appear.',
+        title: 'Let AI write it and clean it up',
+        desc: 'Nobody really reads this stuff anyway.',
         effect: { gpa: 5, burnout: -4, motivation: -7, dependency: 11 },
-        feedback: { tone: 'warning', headline: 'HIGH RISK OPTIMIZER', result: 'Some Questions Hit. Some Didn\'t.',
-          desc: 'Two predictions landed. Two didn\'t. You\'re training yourself to outsource prediction rather than understand material.', sound: 'neutral' }
+        feedback: { tone: 'warning', headline: 'HIGH RISK OPTIMIZER', result: 'Submitted. But You Wrote Nothing.',
+          desc: 'Posts are done, burnout is low, grade is fine. But you contributed zero actual thinking to a writing class. Your motivation dropped because some part of you noticed.', sound: 'neutral' }
       },
       {
         letter: 'D', accent: 'var(--accent3)',
-        title: 'Study group — explain concepts out loud, no AI',
-        desc: 'Call your classmates. Debate the material. Teach each other.',
+        title: 'Ask a friend for some help',
+        desc: 'Power of friendship.',
         effect: { gpa: 6, burnout: 4, motivation: 9, dependency: -3 },
-        feedback: { tone: 'positive', headline: 'GRINDER + COMMUNITY', result: 'Understanding Stuck',
-          desc: 'Teaching a concept forces you to actually know it. Your motivation spiked — this is what learning is supposed to feel like.', sound: 'positive' }
+        feedback: { tone: 'positive', headline: 'HUSTLER + COMMUNITY', result: 'Better Together',
+          desc: 'You talked through your ideas with someone real. The back-and-forth sharpened your thinking and your motivation spiked — because that interaction actually meant something.', sound: 'positive' }
       }
     ],
     breakingNews: null
@@ -288,38 +288,38 @@ const SCENES = [
   {
     id: 2,
     tag: 'Question 3',
-    title: 'The Group Project Problem',
-    desc: 'Group project due Friday. Three teammates have done nothing. You could grind through it yourself — or let AI carry the whole thing.',
-    tension: 'Your grade is shared. But your effort doesn\'t have to be.',
+    title: 'PHY2054 - Physics 2',
+    desc: "There's an exam tomorrow, and you have a bit of trouble remembering some formulas.",
+    tension: 'At least you have your pink scantron.',
     choices: [
       {
         letter: 'A', accent: 'var(--burnout-color)',
-        title: 'Do the whole project yourself — no AI',
-        desc: 'Stay up. Carry everyone. Make it excellent.',
-        effect: { gpa: 6, burnout: 13, motivation: -3, dependency: -4 },
-        feedback: { tone: 'warning', headline: 'MARTYR GRINDER', result: 'Done. Resentful. Exhausted.',
-          desc: 'Great grade. But you just sacrificed your wellbeing for people who didn\'t show up. Burnout at this pace won\'t hold.', sound: 'negative' }
+        title: 'Go through the actual material',
+        desc: 'Notes, practice problems, the whole thing',
+        effect: { gpa: 6, burnout: 13, motivation: 4, dependency: -4 },
+        feedback: { tone: 'warning', headline: 'FULL HUSTLER', result: 'Prepared. Exhausted.',
+          desc: 'You went through every formula, every practice problem yourself. Burnout spiked hard — but you walked into that exam knowing you actually studied. That confidence is real.', sound: 'neutral' }
       },
       {
         letter: 'B', accent: 'var(--gpa-color)',
-        title: 'Let AI draft the whole presentation',
-        desc: 'Generate slides, talking points, everything. Submit in 2 hours.',
+        title: 'Ask AI for a quick summary sheet',
+        desc: 'Condense everything into bullets. Study that.',
         effect: { gpa: 5, burnout: -5, motivation: -4, dependency: 10 },
-        feedback: { tone: 'neutral', headline: 'FULL OPTIMIZER', result: 'Presentation Done. Learning: Zero.',
-          desc: 'Efficient. No one broke a sweat. The grade was fine. Nobody learned anything — including you.', sound: 'neutral' }
+        feedback: { tone: 'neutral', headline: 'OPTIMIZER SHORTCUT', result: 'Reviewed. Didn\'t Really Study.',
+          desc: 'You covered the material in 20 minutes. But surface-level bullet points don\'t hold up under a physics exam that asks you to derive and apply. You\'ll feel that gap when the paper lands in front of you.', sound: 'neutral' }
       },
       {
         letter: 'C', accent: 'var(--motivation-color)',
-        title: 'Confront teammates and delegate real tasks',
-        desc: 'Hold an emergency meeting. Assign sections. Lead.',
+        title: 'Study group, no AI',
+        desc: 'Help each other out.',
         effect: { gpa: 4, burnout: 2, motivation: 9, dependency: 0 },
-        feedback: { tone: 'positive', headline: 'GRINDER LEADERSHIP', result: 'Team Activated',
-          desc: 'The slides weren\'t perfect — but everyone contributed. You handled pressure without outsourcing your integrity.', sound: 'positive' }
+        feedback: { tone: 'positive', headline: 'HUSTLER LEADERSHIP', result: 'Group Got It Together',
+          desc: 'You worked through the formulas with other people. Explaining concepts out loud locked them in — and you walked out feeling like you actually understood Physics 2 for once.', sound: 'positive' }
       },
       {
         letter: 'D', accent: 'var(--accent4)',
-        title: 'Use AI for research, build the argument yourself',
-        desc: 'AI surfaces the data. You build the story.',
+        title: "Ask AI what's probably on the exam",
+        desc: "Let's go gambling.",
         effect: { gpa: 6, burnout: -2, motivation: 5, dependency: 6 },
         feedback: { tone: 'positive', headline: 'BALANCED OPTIMIZER', result: 'Smart Use of Tools',
           desc: 'The right blend — AI as research assistant, not ghostwriter. The thinking stayed yours.', sound: 'positive' }
@@ -336,41 +336,41 @@ const SCENES = [
   {
     id: 3,
     tag: 'Question 4',
-    title: 'The Hard Assignment',
-    desc: 'You\'re stuck on an assignment that genuinely challenges you. It\'s due tomorrow and you\'ve been staring at it for two hours. Nothing is clicking.',
-    tension: 'This is exactly the kind of struggle that either builds you — or breaks you.',
+    title: 'CGS3269 - Computer Architecture',
+    desc: "This one hurts. You've used AI all semester, and then you remember your final for CGS3269 is coming up.",
+    tension: "AI can't draw those AND gates for you.",
     choices: [
       {
         letter: 'A', accent: 'var(--motivation-color)',
-        title: 'Keep grinding — no AI until it clicks',
-        desc: 'Stay with the discomfort. The answer is in there somewhere.',
+        title: "You're fine. You understood it even with AI",
+        desc: "You always made sure the material actually clicked",
         effect: { gpa: 3, burnout: 8, motivation: 11, dependency: -5 },
         feedback: { tone: 'positive', headline: 'PRODUCTIVE STRUGGLE', result: 'It Finally Clicked',
           desc: 'You found it yourself. This is the moment that builds actual capability. Slow, painful, real.', sound: 'positive' }
       },
       {
         letter: 'B', accent: 'var(--dependency-color)',
-        title: 'Ask AI to solve it, study the answer',
-        desc: 'Let AI show you how. Then try to understand it after.',
+        title: 'Keep asking AI for help',
+        desc: 'If it worked this whole semester, it should be fine!',
         effect: { gpa: 5, burnout: -3, motivation: -4, dependency: 9 },
         feedback: { tone: 'neutral', headline: 'OPTIMIZER SHORTCUT', result: 'Assignment Done',
           desc: 'You got the answer. But did you learn how to get there — or just how to ask AI to get there for you?', sound: 'neutral' }
       },
       {
         letter: 'C', accent: 'var(--accent3)',
-        title: 'Go to office hours and ask a human',
-        desc: 'Show up. Admit you\'re stuck. Ask for help.',
-        effect: { gpa: 5, burnout: -1, motivation: 10, dependency: -5 },
-        feedback: { tone: 'positive', headline: 'SMART GRINDER', result: 'Connection Made',
-          desc: 'Your professor helped you trace the logic step by step. You now understand why — not just what. Professors remember students who show up.', sound: 'positive' }
+        title: 'Tell ChatGPT to generate a circuit for you',
+        desc: 'Surely it will look fine.',
+        effect: { gpa: 6, burnout: -3, motivation: -7, dependency: 12 },
+        feedback: { tone: 'warning', headline: 'OPTIMIZER GAMBLE', result: 'Circuit Submitted. You Don\'t Know Why.',
+          desc: 'The diagram looked fine — until the professor asked you to explain it. You couldn\'t. AI can\'t sit in that exam and draw AND gates for you. That gap just got bigger.', sound: 'negative' }
       },
       {
         letter: 'D', accent: 'var(--accent2)',
-        title: 'Submit what you have — partial credit is fine',
-        desc: 'Cut your losses. Move on. It\'s not worth the burnout.',
-        effect: { gpa: -6, burnout: -4, motivation: -6, dependency: 0 },
-        feedback: { tone: 'danger', headline: 'KNOWLEDGE GAP LOGGED', result: 'Partial Credit. Full Gap.',
-          desc: 'The relief was real. But the gap in your understanding doesn\'t disappear — it shows up again on the final.', sound: 'negative' }
+        title: 'Go to office hours before it is too late',
+        desc: 'Get human help.',
+        effect: { gpa: 5, burnout: -1, motivation: 10, dependency: -5 },
+        feedback: { tone: 'positive', headline: 'SMART HUSTLER', result: 'It Actually Clicked.',
+          desc: 'Your professor traced the logic step by step on a whiteboard. Something locked in that no AI explanation could trigger. And professors remember the students who show up.', sound: 'positive' }
       }
     ],
     breakingNews: null
@@ -380,41 +380,41 @@ const SCENES = [
   {
     id: 4,
     tag: 'Question 5',
-    title: 'Burnout Warning Sign',
-    desc: 'Week 9. You\'re running on 5 hours of sleep. Your next assignment is due tomorrow. Your Optimizer friend submitted theirs 2 hours ago using AI.',
-    tension: 'Your body is sending red flags. Do you listen?',
+    title: "CIS4004 - Web-Based IT",
+    desc: "It's your final project before graduation, MERN stack sounds like too much work.",
+    tension: 'So many different languages',
     choices: [
       {
         letter: 'A', accent: 'var(--burnout-color)',
-        title: 'Push through — Grinders don\'t quit',
-        desc: 'Rest is for people who didn\'t commit hard enough.',
-        effect: { gpa: 4, burnout: 15, motivation: -6, dependency: -3 },
-        feedback: { tone: 'danger', headline: 'BURNOUT ZONE', result: 'Assignment Done. Body Failing.',
-          desc: 'Submitted. But at 70+ burnout, your cognitive performance is clinically impaired. You\'re not grinding — you\'re decaying.', sound: 'negative' }
+        title: 'Build it yourself, start to finish',
+        desc: 'The resume is going to be crazyyy.',
+        effect: { gpa: 4, burnout: 15, motivation: 8, dependency: -4 },
+        feedback: { tone: 'warning', headline: 'BURNOUT ZONE', result: 'Built. Exhausted. Proud.',
+          desc: 'You deployed a full MERN stack app — by yourself. Burnout is through the roof, but your motivation actually climbed because you know exactly what you built and why. That\'s real.', sound: 'neutral' }
       },
       {
         letter: 'B', accent: 'var(--gpa-color)',
-        title: 'Use AI to finish faster — protect your energy',
-        desc: 'Offload the cognitive work. Rest after.',
+        title: 'AI handles the hard parts, you own the concept',
+        desc: 'There is too much code.',
         effect: { gpa: 5, burnout: -4, motivation: -5, dependency: 10 },
         feedback: { tone: 'warning', headline: 'STRESS-TRIGGERED OPTIMIZER', result: 'Submitted. Slept. Dependent.',
           desc: 'Smart short-term move. But notice: AI is now your stress response. Every hard moment makes this pattern stronger.', sound: 'neutral' }
       },
       {
         letter: 'C', accent: 'var(--motivation-color)',
-        title: 'Email the professor and request an extension',
-        desc: 'Be honest about your mental health. Ask for more time.',
-        effect: { gpa: -2, burnout: -9, motivation: 7, dependency: 0 },
-        feedback: { tone: 'positive', headline: 'SELF-ADVOCACY WIN', result: 'Extension Granted',
-          desc: 'Most professors respect honest students who communicate. Your burnout dropped significantly. That\'s worth more than a few GPA points.', sound: 'positive' }
+        title: 'Let AI do all of it',
+        desc: 'Surely no one will read a thousand lines of code.',
+        effect: { gpa: 7, burnout: -6, motivation: -9, dependency: 15 },
+        feedback: { tone: 'danger', headline: 'FULL OPTIMIZER', result: 'A-Grade App. Zero Ownership.',
+          desc: 'It compiled. It deployed. You got a great grade on your final project before graduation — and you couldn\'t explain a single line of it. Your motivation hit the floor because you know exactly what happened here.', sound: 'negative' }
       },
       {
         letter: 'D', accent: 'var(--accent3)',
-        title: 'Take a full rest day and submit late',
-        desc: 'Late penalty or not — your brain needs to recover.',
-        effect: { gpa: -4, burnout: -11, motivation: 9, dependency: 0 },
-        feedback: { tone: 'positive', headline: 'RADICAL RECOVERY', result: 'Recharged and Clear',
-          desc: 'The penalty hurts. But you returned to full capacity. Protecting long-term performance sometimes costs short-term points.', sound: 'positive' }
+        title: 'Collaborate with a classmate',
+        desc: 'Split the work. Learn better together',
+        effect: { gpa: 6, burnout: -5, motivation: 9, dependency: 0 },
+        feedback: { tone: 'positive', headline: 'SYNERGY BUILD', result: 'Shipped Together.',
+          desc: 'You split the stack, helped each other debug, and actually understood what you both built. Burnout dropped, motivation climbed — and you can talk about this project in an interview.', sound: 'positive' }
       }
     ],
     breakingNews: null
@@ -625,23 +625,23 @@ function nextScene(idx) {
    ARCHETYPE ENGINE — Only 2 archetypes
 ───────────────────────────────────────────── */
 function getArchetype(gpa, burnout, motivation, dependency) {
-  // Grinder score: high motivation + high burnout + low dependency
+  // Hustler score: high motivation + high burnout + low dependency
   // Optimizer score: high gpa + high dependency + low motivation
-  const grinderScore   = (motivation * 0.4) + (burnout * 0.3) + ((100 - dependency) * 0.3);
+  const hustlerScore   = (motivation * 0.4) + (burnout * 0.3) + ((100 - dependency) * 0.3);
   const optimizerScore = (gpa * 0.4)        + (dependency * 0.3) + ((100 - motivation) * 0.3);
 
-  if (grinderScore >= optimizerScore) {
+  if (hustlerScore >= optimizerScore) {
     return {
-      type: 'grinder',
+      type: 'hustler',
       emoji: '💪',
-      name: 'The Grinder',
+      name: 'The Hustler',
       tagline: 'AI-Avoidant · High Burnout · High Motivation',
-      desc: 'You pushed through the hard stuff yourself. Your motivation stayed high, your dependency stayed low — but your burnout climbed the cost of that choice. You built real cognitive muscle this semester. The question now: is the struggle sustainable, or does it need a smarter strategy?',
+      desc: 'You hustled through the hard stuff yourself. Your motivation stayed high, your dependency stayed low — but your burnout climbed as the cost of that choice. You built real cognitive muscle this semester. The question now: is the hustle sustainable, or does it need a smarter strategy?',
       color: 'var(--burnout-color)',
       glow: 'rgba(255,51,102,0.3)',
       side: 'LEFT SIDE OF THE ROOM',
       sideArrow: '⬅',
-      debate: 'You\'ll defend: Struggling through builds real skills, authentic confidence, and the kind of resilience that AI shortcuts can never replicate.'
+      debate: 'You\'ll defend: Hustling through builds real skills, authentic confidence, and the kind of resilience that AI shortcuts can never replicate.'
     };
   } else {
     return {
@@ -773,11 +773,8 @@ function updateTimerDisplay() {
    DEBATE QUESTION SLIDES
 ───────────────────────────────────────────── */
 const DEBATE_QUESTIONS = [
-  'Which student actually wins in the long run — the one who uses AI to get ahead, or the one who struggles through it themselves?',
-  'Does using AI to get better grades actually mean you learned more — or just that your output looks better?',
-  'If a Grinder and an Optimizer both land the same job, who performs better after year one — and why?',
-  'Grinders burn out. Optimizers lose motivation. Which long-term consequence is more dangerous to your career?',
-  'If AI does your homework, whose knowledge is it — yours or the machine\'s? Does the answer change when the stakes are real?'
+  "If AI streamlines your workflow, does that increase your motivation or slowly destroy it?",
+  "If you got an A on something AI mostly did — do you feel proud of it? And if not, what does that say about where your motivation actually comes from?"
 ];
 
 let currentDQ = 0;
